@@ -1,0 +1,30 @@
+// Выполнение задания на Java
+
+import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+public class TaskOnJava {
+    public static void main(String[] args) {
+        List<Integer> array = List.of(1, 3, 4, 5, 1, 5, 4);
+        System.out.println(countElements(array));
+    }
+    public static Map<Integer, Long> countElements(List<Integer> array) {
+        return array.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+    }
+}
+
+
+
+Выполнение задания на Groovy
+class TaskOnGroovy {
+    static void main(String[] args) {
+        def array = [1, 3, 4, 5, 1, 5, 4]
+        println countElements(array)
+    }
+
+    static Map<Integer, Long> countElements(List<Integer> array) {
+        return array.countBy { it }
+    }
+}
